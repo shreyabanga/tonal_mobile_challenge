@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import '../widgets/metrics.dart';
 
 class DemoPage extends StatefulWidget {
   const DemoPage({Key? key}) : super(key: key);
@@ -19,32 +19,24 @@ class DemoPageState extends State<DemoPage> {
 
   @override
   Widget build(BuildContext context) {
-  
     return Scaffold(
       appBar: AppBar(
-        
         title: const Text('Hello'),
       ),
       body: Center(
-       
-        child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
-            ),
+            Metrics("Upper Body", 45),
+            // Metrics("Coe", 123),
+            // Metrics("Lower Body", 315)
+
+            
+         
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), 
+      
     );
   }
 }
