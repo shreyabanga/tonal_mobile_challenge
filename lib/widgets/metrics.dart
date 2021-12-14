@@ -8,7 +8,7 @@ class Metrics extends StatelessWidget {
   final String label;
   final int weight;
   static String unit = "lbs";
-  final String assetName = 'assets/images/graph.svg';
+  static String assetName = 'assets/images/graph.svg';
 
   @override
   Widget build(BuildContext context) {
@@ -24,9 +24,13 @@ class Metrics extends StatelessWidget {
           
         ),
         Column(mainAxisAlignment: MainAxisAlignment.center,children: [
-          Text(
-            label,
-            style: labelTextStyle,
+          ConstrainedBox(
+            constraints: const BoxConstraints(maxHeight: 24,maxWidth: 160),
+            child: Text(
+              label,
+              overflow: TextOverflow.ellipsis,
+              style: labelTextStyle,
+            ),
           ),
           /* I was not sure if the weight contraint of 0-350 needed to be cross-
           checked, so i included a check here just to prevent text from overflowing.

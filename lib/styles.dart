@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 const bubbleDiameter = 272;
 const inputFillColor = Color(0xFFE8E8E8);
 const inputTextColor = Color(0xFFA9A9A9);
+const greenColor = Color(0xff53a99a);
+
 const bubbleBoxDecoration = BoxDecoration(
   color: Color(0xff53a99a),
   shape: BoxShape.circle,
@@ -44,7 +46,7 @@ const labelFormDecoration = InputDecoration(
     border: inputBorder,
     icon: Icon(
       Icons.label,
-      color: Colors.green,
+      color: greenColor,
     ),
     hintText: 'Enter label',
     fillColor: inputFillColor,
@@ -55,7 +57,7 @@ const weightFormDecoration = InputDecoration(
   border: inputBorder,
   icon: Icon(
     Icons.fitness_center,
-    color: Colors.green,
+    color: greenColor,
   ),
   fillColor: inputFillColor,
   filled: true,
@@ -66,5 +68,5 @@ ButtonStyle doneButtonStyle = ButtonStyle(
   shape: MaterialStateProperty.all(RoundedRectangleBorder(
     borderRadius: BorderRadius.circular(25),
   )),
-  backgroundColor: MaterialStateProperty.all(Colors.green),
+  backgroundColor: MaterialStateProperty.all(greenColor),
 );

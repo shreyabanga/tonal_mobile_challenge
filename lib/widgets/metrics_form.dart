@@ -1,24 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:tonal_mobile_challenge/styles.dart';
 
-class MetricsForm extends StatefulWidget {
-  const MetricsForm({Key? key}) : super(key: key);
+class MetricsForm extends StatelessWidget {
+  final Function(Map<String,Object>) notifyParent;
+  MetricsForm({Key? key, required this.notifyParent}) : super(key: key);
 
-  @override
-  MetricsFormState createState() {
-    return MetricsFormState();
-  }
-}
-
-class MetricsFormState extends State<MetricsForm> {
   final formKey = GlobalKey<FormState>();
   String label = "";
   int weight = 0;
 
   @override
   Widget build(BuildContext context) {
-    
-
     return Form(
       key: formKey,
       child: Column(
@@ -39,13 +31,11 @@ class MetricsFormState extends State<MetricsForm> {
                 return null;
               },
               cursorColor: Colors.green,
-              
             ),
           ),
           Padding(
             padding: const EdgeInsets.all(16.0),
             child: TextFormField(
-              
               onSaved: (newValue) {
                 weight = int.parse(newValue!);
               },
@@ -67,12 +57,12 @@ class MetricsFormState extends State<MetricsForm> {
               onPressed: () {
                 if (formKey.currentState!.validate()) {
                   formKey.currentState!.save();
-                  print(weight);
-                  print(label);
+                  notifyParent({'weight':weight,'label':label});
+                 
                 }
               },
               child: const Padding(
-                padding: EdgeInsets.fromLTRB(20.0,5.0,20.0,5.0),
+                padding: EdgeInsets.fromLTRB(20.0, 5.0, 20.0, 5.0),
                 child: Text('Done'),
               ),
             ),

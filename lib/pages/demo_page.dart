@@ -12,11 +12,11 @@ class DemoPage extends StatefulWidget {
 class DemoPageState extends State<DemoPage> {
   String label = "Upper Body";
   int weight = 45;
-  int _counter = 0;
 
-  void _incrementCounter() {
+  void refresh(values) {
     setState(() {
-      _counter++;
+      weight = values['weight'];
+      label = values['label'];
     });
   }
 
@@ -24,15 +24,15 @@ class DemoPageState extends State<DemoPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Hello'),
+        title: const Text('Tonal Coding Challenge'),
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Metrics("Upper Body", 45),
-            const SizedBox(height:20.0),
-            const MetricsForm()
+            Metrics(label, weight),
+            const SizedBox(height: 20.0),
+            MetricsForm(notifyParent: refresh)
 
             // Metrics("Coe", 123),
             // Metrics("Lower Body", 315)
