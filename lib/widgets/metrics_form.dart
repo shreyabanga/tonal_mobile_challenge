@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:tonal_mobile_challenge/styles.dart';
 
 class MetricsForm extends StatelessWidget {
-  final Function(Map<String,Object>) notifyParent;
+  final Function(Map<String, Object>) notifyParent;
   MetricsForm({Key? key, required this.notifyParent}) : super(key: key);
 
   final formKey = GlobalKey<FormState>();
@@ -39,12 +39,15 @@ class MetricsForm extends StatelessWidget {
               onSaved: (newValue) {
                 weight = int.parse(newValue!);
               },
-              keyboardType: TextInputType.phone,
+              keyboardType: TextInputType.numberWithOptions(signed:true),
               decoration: weightFormDecoration,
               cursorColor: Colors.green,
               validator: (value) {
                 if (value == null || value.isEmpty) {
                   return 'Please enter some text';
+                }
+                if (!value.contains(RegExp(r'^-?[0-9]+$'))) {
+                  return 'Please enter numeric values';
                 }
                 return null;
               },
@@ -57,13 +60,12 @@ class MetricsForm extends StatelessWidget {
               onPressed: () {
                 if (formKey.currentState!.validate()) {
                   formKey.currentState!.save();
-                  notifyParent({'weight':weight,'label':label});
-                 
+                  notifyParent({'weight': weight, 'label': label});
                 }
               },
               child: const Padding(
                 padding: EdgeInsets.fromLTRB(20.0, 5.0, 20.0, 5.0),
-                child: Text('Done'),
+                child: Text('Submit'),
               ),
             ),
           ),

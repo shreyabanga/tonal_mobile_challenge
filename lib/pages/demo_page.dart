@@ -26,17 +26,20 @@ class DemoPageState extends State<DemoPage> {
       appBar: AppBar(
         title: const Text('Tonal Coding Challenge'),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Metrics(label, weight),
-            const SizedBox(height: 20.0),
-            MetricsForm(notifyParent: refresh)
-
-            // Metrics("Coe", 123),
-            // Metrics("Lower Body", 315)
-          ],
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.only(top: 40.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Metrics(label, weight),
+              const SizedBox(height: 20.0),
+              MetricsForm(notifyParent: refresh)
+      
+              // Metrics("Coe", 123),
+              // Metrics("Lower Body", 315)
+            ],
+          ),
         ),
       ),
     );
