@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../widgets/metrics.dart';
+import '../widgets/metrics_form.dart';
 
 class DemoPage extends StatefulWidget {
   const DemoPage({Key? key}) : super(key: key);
@@ -9,6 +10,8 @@ class DemoPage extends StatefulWidget {
 }
 
 class DemoPageState extends State<DemoPage> {
+  String label = "Upper Body";
+  int weight = 45;
   int _counter = 0;
 
   void _incrementCounter() {
@@ -24,19 +27,18 @@ class DemoPageState extends State<DemoPage> {
         title: const Text('Hello'),
       ),
       body: Center(
-        child: Row(
+        child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Metrics("Upper Body", 45),
+            const SizedBox(height:20.0),
+            const MetricsForm()
+
             // Metrics("Coe", 123),
             // Metrics("Lower Body", 315)
-
-            
-         
           ],
         ),
       ),
-      
     );
   }
 }
