@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import './demo_page.dart';
+import 'pages/demo_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
       title: 'Tonal Mobile Challenge',
       theme: ThemeData(
         fontFamily: 'Helvetica',
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.green,
       ),
       home: const DemoPage(),
     );
