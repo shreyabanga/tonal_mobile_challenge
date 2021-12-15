@@ -10,9 +10,13 @@ class DemoPage extends StatefulWidget {
 }
 
 class DemoPageState extends State<DemoPage> {
+  /* Initial values */
   String label = "Upper Body";
   int weight = 45;
 
+  /* The function that is called from the child to receive the user entered 
+    values.
+  */
   void refresh(values) {
     setState(() {
       weight = values['weight'];
@@ -30,14 +34,12 @@ class DemoPageState extends State<DemoPage> {
         child: Padding(
           padding: const EdgeInsets.only(top: 40.0),
           child: Column(
+            
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Metrics(label, weight),
               const SizedBox(height: 20.0),
               MetricsForm(notifyParent: refresh)
-      
-              // Metrics("Coe", 123),
-              // Metrics("Lower Body", 315)
             ],
           ),
         ),

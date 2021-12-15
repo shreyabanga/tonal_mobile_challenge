@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 const bubbleDiameter = 272;
+
+/* The color for the additional form UI elements */
 const inputFillColor = Color(0xFFE8E8E8);
 const inputTextColor = Color(0xFFA9A9A9);
 const greenColor = Color(0xff53a99a);
@@ -41,6 +43,8 @@ const inputBorder = OutlineInputBorder(
   borderSide: BorderSide.none,
 );
 
+
+/* Decoration for the input fields on the form */
 const labelFormDecoration = InputDecoration(
     hintStyle: TextStyle(color: inputTextColor),
     border: inputBorder,
@@ -63,6 +67,8 @@ const weightFormDecoration = InputDecoration(
   filled: true,
   hintText: 'Enter weight',
 );
+
+/* Style for the submit button */
 
 ButtonStyle doneButtonStyle = ButtonStyle(
   shape: MaterialStateProperty.all(RoundedRectangleBorder(

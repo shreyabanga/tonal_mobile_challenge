@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'pages/demo_page.dart';
-import 'styles.dart';
 
 void main() {
   runApp(const MyApp());
